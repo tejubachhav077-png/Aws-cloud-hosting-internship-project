@@ -1,0 +1,244 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MOTOREN WERKE | BMW Collection</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800&family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:#07090d;color:#fff;font-family:Montserrat,sans-serif}
+:root{--blue:#168cff;--silver:#cbd3df;--panel:#111722}
+a{text-decoration:none;color:inherit}
+header{
+ position:fixed;z-index:1000;top:0;width:100%;height:78px;
+ padding:0 7%;display:flex;align-items:center;justify-content:space-between;
+ background:#07090de8;backdrop-filter:blur(15px);
+ border-bottom:1px solid #ffffff18
+}
+.logo{font:800 19px Orbitron;letter-spacing:3px}
+.logo span{color:var(--blue)}
+nav{display:flex;gap:27px}
+nav a{font-size:10px;letter-spacing:1.5px;color:#cbd3df;transition:.3s}
+nav a:hover{color:var(--blue)}
+.menu{display:none;background:none;border:0;color:white;font-size:25px}
+.hero{
+ min-height:100vh;display:flex;align-items:center;padding:130px 8% 90px;
+ background:linear-gradient(90deg,#05070bf5 0%,#05070bb8 48%,#05070b25),
+ url("https://www.bmw-m.com/content/dam/bmw/marketBMW_M/common/fastlane/driving-experience/2022/DrivingExperience_Dropdown-Trainingsflotte_1185x790px.jpg") center/cover;
+ position:relative
+}
+.hero:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,#07090d,transparent 35%)}
+.hero-content{position:relative;z-index:1;max-width:650px}
+.kicker{color:var(--blue);font-size:10px;font-weight:800;letter-spacing:4px;margin-bottom:20px}
+.hero h1{font:800 clamp(45px,8vw,90px)/1.08 Orbitron;letter-spacing:-3px}
+.hero h1 span{color:transparent;-webkit-text-stroke:1px white}
+.hero p{color:#b9c1cc;font-size:13px;line-height:1.9;max-width:470px;margin:25px 0 32px}
+.btn{display:inline-block;background:var(--blue);padding:16px 25px;font-size:10px;font-weight:800;letter-spacing:2px;transition:.3s}
+.btn:hover{background:#fff;color:#05070b;transform:translateY(-3px)}
+.hero-tag{position:absolute;right:7%;bottom:90px;z-index:2;font:12px Orbitron;letter-spacing:4px;color:#ffffff9c}
+section{padding:95px 8%}
+.dark{background:#0b0f15}
+.section-head{display:flex;justify-content:space-between;align-items:end;gap:25px;margin-bottom:40px}
+.section-head h2{font:700 clamp(27px,4vw,45px) Orbitron}
+.section-head p{max-width:350px;color:#8994a3;font-size:11px;line-height:1.9}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.card{background:var(--panel);border:1px solid #ffffff15;overflow:hidden;transition:.4s}
+.card:hover{transform:translateY(-8px);border-color:var(--blue);box-shadow:0 20px 45px #0009}
+.car-image{height:230px;overflow:hidden;background:#101923}
+.car-image img{width:100%;height:100%;object-fit:cover;display:block;transition:.6s}
+.card:hover .car-image img{transform:scale(1.07)}
+.card-body{padding:24px}
+.card-body small{color:var(--blue);font-size:9px;font-weight:800;letter-spacing:3px}
+.card-body h3{font:600 19px Orbitron;margin:12px 0}
+.card-body p{color:#98a2af;font-size:11px;line-height:1.8;min-height:40px}
+.card-body a{display:inline-block;margin-top:18px;color:#fff;font-size:10px;letter-spacing:2px;border-bottom:1px solid var(--blue);padding-bottom:7px}
+.m-banner{
+ min-height:420px;padding:70px 8%;display:flex;align-items:center;
+ background:linear-gradient(90deg,#05070bf2,#05070b80,transparent),
+ url("https://mediapool.bmwgroup.com/cache/P9/202303/P90497768/P90497768-the-all-new-bmw-m2-on-location-driving-2249px.jpg") center/cover
+}
+.m-banner h2{font:800 clamp(50px,9vw,95px)/1 Orbitron}
+.m-banner h2 span{color:var(--blue)}
+.m-banner p{max-width:420px;color:#c0c8d3;font-size:12px;line-height:1.9;margin:22px 0 28px}
+.series-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.series{
+ padding:27px;background:linear-gradient(140deg,#172333,#0b0e13);
+ border:1px solid #ffffff16;transition:.3s;min-height:150px
+}
+.series:hover{border-color:var(--blue);transform:translateY(-5px)}
+.series small{color:var(--blue);font-size:9px;letter-spacing:2px}
+.series h3{font:700 27px Orbitron;margin:15px 0 8px}
+.series p{color:#9ba5b2;font-size:10px;line-height:1.7}
+.gallery{display:grid;grid-template-columns:2fr 1fr 1fr;gap:14px}
+.gallery img{width:100%;height:210px;object-fit:cover;display:block;filter:brightness(.8);transition:.4s}
+.gallery img:first-child{height:434px}
+.gallery img:hover{filter:brightness(1);transform:scale(1.015)}
+.contact{text-align:center;background:linear-gradient(135deg,#12243a,#07090d)}
+.contact h2{font:800 clamp(30px,5vw,55px) Orbitron;margin-bottom:20px}
+.contact p{color:#9ba5b2;font-size:12px;line-height:1.8;margin:0 auto 28px;max-width:500px}
+footer{padding:30px 8%;border-top:1px solid #ffffff18;display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap;color:#788391;font-size:9px;letter-spacing:1px}
+footer strong{font:700 14px Orbitron;color:#fff}
+.reveal{opacity:0;transform:translateY(25px);transition:.7s}
+.reveal.show{opacity:1;transform:translateY(0)}
+@media(max-width:900px){
+ .grid{grid-template-columns:repeat(2,1fr)}
+ .series-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:650px){
+ header{height:68px}
+ nav{display:none;position:absolute;top:68px;left:0;width:100%;padding:25px;background:#080b10;flex-direction:column}
+ nav.open{display:flex}
+ .menu{display:block}
+ .hero{padding:125px 7% 90px}
+ .hero-tag{display:none}
+ section{padding:70px 6%}
+ .section-head{display:block}
+ .section-head p{margin-top:15px}
+ .grid,.series-grid{grid-template-columns:1fr}
+ .gallery{grid-template-columns:1fr 1fr}
+ .gallery img:first-child{height:210px}
+ footer{padding:25px 6%}
+}
+</style>
+</head>
+
+<body>
+<header>
+ <a class="logo" href="#">MOTOREN <span>WERKE</span></a>
+ <nav id="nav">
+  <a href="#home">HOME</a>
+  <a href="#m-cars">M SPORTS</a>
+  <a href="#collection">COLLECTION</a>
+  <a href="#series">BMW SERIES</a>
+  <a href="#gallery">GALLERY</a>
+ </nav>
+ <button class="menu" onclick="document.getElementById('nav').classList.toggle('open')">☰</button>
+</header>
+
+<section class="hero" id="home">
+ <div class="hero-content">
+  <div class="kicker">THE WORLD OF BMW</div>
+  <h1>PURE<br><span>DRIVING</span><br>PASSION.</h1>
+  <p>Discover the complete BMW experience. Iconic sports cars, legendary M machines, executive luxury sedans and powerful SAVs. Every BMW passion, one destination.</p>
+  <a class="btn" href="#m-cars">EXPLORE THE COLLECTION ↗</a>
+ </div>
+ <div class="hero-tag">BMW • M PERFORMANCE • LUXURY</div>
+</section>
+
+<section class="dark" id="m-cars">
+ <div class="section-head reveal">
+  <div><div class="kicker">BORN FOR PERFORMANCE</div><h2>THE M COLLECTION</h2></div>
+  <p>Motorsport DNA. Aggressive styling. Precision engineering. Discover the BMW M performance world.</p>
+ </div>
+
+ <div class="grid">
+  <article class="card reveal">
+   <div class="car-image"><img src="https://mediapool.bmwgroup.com/cache/P9/202303/P90497768/P90497768-the-all-new-bmw-m2-on-location-driving-2249px.jpg" alt="BMW M2"></div>
+   <div class="card-body"><small>COMPACT M POWER</small><h3>BMW M2</h3><p>Compact dimensions with an unmistakable performance attitude.</p><a href="https://www.press.bmwgroup.com/global/photo/topic/8638/m4" target="_blank">EXPLORE BMW M ↗</a></div>
+  </article>
+
+  <article class="card reveal">
+   <div class="car-image"><img src="https://mediapool.bmwgroup.com/download/edown/pressclub/publicq?actEvent=image&attachment=1&dokNo=P90416608" alt="BMW M3 and M4"></div>
+   <div class="card-body"><small>SPORT SEDAN</small><h3>BMW M3</h3><p>Track-inspired performance with everyday practicality.</p><a href="https://www.press.bmwgroup.com/global/photo/topic/4266" target="_blank">EXPLORE BMW M ↗</a></div>
+  </article>
+
+  <article class="card reveal">
+   <div class="car-image"><img src="https://www.bmw-m.com/content/dam/bmw/marketBMW_M/common/fastlane/driving-experience/2022/DrivingExperience_Dropdown-Trainingsflotte_1185x790px.jpg" alt="BMW M4 performance collection"></div>
+   <div class="card-body"><small>PERFORMANCE COUPÉ</small><h3>BMW M4</h3><p>A bold coupé with iconic BMW M styling and power.</p><a href="https://www.press.bmwgroup.com/global/photo/topic/8638/m4" target="_blank">EXPLORE BMW M ↗</a></div>
+  </article>
+
+  <article class="card reveal">
+   <div class="car-image"><img src="https://www.bmw-m.com/content/dam/bmw/marketBMW_M/common/fastlane/driving-experience/2022/DrivingExperience_Dropdown_MDriversPackage_1185x790px.jpg" alt="BMW M performance cars"></div>
+   <div class="card-body"><small>EXECUTIVE PERFORMANCE</small><h3>BMW M5</h3><p>Luxury, technology and high-performance engineering.</p><a href="https://www.bmw-m.com/" target="_blank">EXPLORE BMW M ↗</a></div>
+  </article>
+
+  <article class="card reveal">
+   <div class="car-image"><img src="https://images.engineweb.jp/media/article/3346972/images/fbd004697e3ea672365dee164e25c39943f6aeef.jpg?w=1200" alt="BMW M sports car collection"></div>
+   <div class="card-body"><small>GRAND TOURING</small><h3>BMW M8</h3><p>Flagship M character with a grand touring presence.</p><a href="https://www.bmw-m.com/" target="_blank">EXPLORE BMW M ↗</a></div>
+  </article>
+
+  <article class="card reveal">
+   <div class="car-image"><img src="https://i2.8000vueltas.com/2023/07/Gama-M-17-1-2048x1366.jpg" alt="BMW XM and M collection"></div>
+   <div class="card-body"><small>HIGH-PERFORMANCE SAV</small><h3>BMW XM</h3><p>Bold presence and electrified BMW M performance.</p><a href="https://www.bmw-m.com/" target="_blank">EXPLORE BMW M ↗</a></div>
+  </article>
+ </div>
+</section>
+
+<div class="m-banner">
+ <div class="reveal">
+  <div class="kicker">MOTORSPORT DNA</div>
+  <h2>MAKE<br>IT <span>M.</span></h2>
+  <p>More than performance. A statement of precision, power and passion. Step into the BMW M world.</p>
+  <a class="btn" href="https://www.bmw-m.com/" target="_blank">DISCOVER BMW M ↗</a>
+ </div>
+</div>
+
+<section id="collection">
+ <div class="section-head reveal">
+  <div><div class="kicker">THE COMPLETE LINE-UP</div><h2>BMW COLLECTION</h2></div>
+  <p>Explore BMW's iconic model families, from compact cars to flagship luxury and electric innovation.</p>
+ </div>
+ <div class="series-grid">
+  <a class="series reveal" href="https://www.bmw.com/en/all-models/1-series.html" target="_blank"><small>COMPACT</small><h3>1 SERIES</h3><p>Urban character and dynamic design.</p></a>
+  <a class="series reveal" href="https://www.bmw.com/en/all-models/2-series.html" target="_blank"><small>SPORTY COMPACT</small><h3>2 SERIES</h3><p>Sporty design and compact performance.</p></a>
+  <a class="series reveal" href="https://www.bmw.com/en/all-models/3-series.html" target="_blank"><small>SPORT SEDAN</small><h3>3 SERIES</h3><p>The iconic BMW sports sedan family.</p></a>
+  <a class="series reveal" href="https://www.bmw.com/en/all-models/4-series.html" target="_blank"><small>COUPÉ & CONVERTIBLE</small><h3>4 SERIES</h3><p>Distinctive design and sporty character.</p></a>
+  <a class="series reveal" href="https://www.bmw.com/en/all-models/5-series.html" target="_blank"><small>BUSINESS CLASS</small><h3>5 SERIES</h3><p>Executive comfort and innovation.</p></a>
+  <a class="series reveal" href="https://www.bmw.com/en/all-models/7-series.html" target="_blank"><small>FLAGSHIP LUXURY</small><h3>7 SERIES</h3><p>The ultimate luxury experience.</p></a>
+  <a class="series reveal" href="https://www.bmw.com/en/all-models/8-series.html" target="_blank"><small>GRAND TOURING</small><h3>8 SERIES</h3><p>Luxury with a sporting soul.</p></a>
+  <a class="series reveal" href="https://www.bmw.com/en/all-models/z4.html" target="_blank"><small>ROADSTER</small><h3>Z SERIES</h3><p>Open-top driving excitement.</p></a>
+  <a class="series reveal" href="https://www.bmw.com/en/all-models/x-models.html" target="_blank"><small>SPORT ACTIVITY VEHICLES</small><h3>X SERIES</h3><p>Powerful BMW SUVs for every journey.</p></a>
+  <a class="series reveal" href="https://www.bmw.com/en/all-models/bmw-i.html" target="_blank"><small>ELECTRIC</small><h3>BMW i</h3><p>Electric innovation and modern design.</p></a>
+  <a class="series reveal" href="https://www.bmw-m.com/" target="_blank"><small>HIGH PERFORMANCE</small><h3>M SERIES</h3><p>Motorsport engineering unleashed.</p></a>
+  <a class="series reveal" href="https://www.bmw.com/" target="_blank"><small>EXCLUSIVE LUXURY</small><h3>BMW INDIVIDUAL</h3><p>Personalisation without limits.</p></a>
+ </div>
+</section>
+
+<section class="dark" id="gallery">
+ <div class="section-head reveal">
+  <div><div class="kicker">DETAILS DEFINE PERFECTION</div><h2>BMW VISUAL GALLERY</h2></div>
+  <p>BMW M design, iconic performance machines and the spirit of driving.</p>
+ </div>
+ <div class="gallery reveal">
+  <img src="https://www.bmw-m.com/content/dam/bmw/marketBMW_M/common/fastlane/driving-experience/2022/DrivingExperience_Dropdown-Trainingsflotte_1185x790px.jpg" alt="BMW M cars">
+  <img src="https://mediapool.bmwgroup.com/cache/P9/202303/P90497768/P90497768-the-all-new-bmw-m2-on-location-driving-2249px.jpg" alt="BMW M2">
+  <img src="https://mediapool.bmwgroup.com/download/edown/pressclub/publicq?actEvent=image&attachment=1&dokNo=P90416608" alt="BMW M3 M4">
+  <img src="https://www.bmw-m.com/content/dam/bmw/marketBMW_M/common/fastlane/driving-experience/2022/DrivingExperience_Dropdown_MDriversPackage_1185x790px.jpg" alt="BMW M collection">
+  <img src="https://i2.8000vueltas.com/2023/07/Gama-M-17-1-2048x1366.jpg" alt="BMW M models">
+ </div>
+</section>
+
+<section class="contact">
+ <div class="kicker">WELCOME TO THE WORLD OF BMW</div>
+ <h2>DRIVE YOUR<br>OWN LEGACY.</h2>
+ <p>Explore the BMW range and discover the machine that matches your passion.</p>
+ <a class="btn" href="https://www.bmw.com/" target="_blank">EXPLORE BMW ↗</a>
+</section>
+
+<footer>
+ <strong>MOTOREN WERKE</strong>
+ <span>INDEPENDENT BMW-INSPIRED SHOWROOM CONCEPT</span>
+ <span>© 2026 MOTOREN WERKE</span>
+</footer>
+
+<script>
+const observer=new IntersectionObserver(entries=>{
+ entries.forEach(entry=>{
+  if(entry.isIntersecting){
+   entry.target.classList.add("show");
+   observer.unobserve(entry.target);
+  }
+ });
+},{threshold:.12});
+document.querySelectorAll(".reveal").forEach(el=>observer.observe(el));
+document.querySelectorAll("nav a").forEach(a=>{
+ a.addEventListener("click",()=>document.getElementById("nav").classList.remove("open"));
+});
+</script>
+</body>
+</html>
+
